@@ -7,22 +7,27 @@
 ## Install
 
 ```bash
-npm install --save react-nfc
+npm install react-nfc
+
+# or if you use yarn
+yarn add react-nfc
 ```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
 
-import MyComponent from 'react-nfc'
+import { useNfcRead } from 'react-nfc'
 
-class Example extends Component {
-  render () {
-    return (
-      <MyComponent />
-    )
-  }
+function Example() {
+  const nfc = useNfcRead()
+  return (
+    <div>
+      <div>Status: {nfc.status}</div>
+      <div>Data: {JSON.stringify(nfc.data)}</div>
+    </div>
+  )
 }
 ```
 
