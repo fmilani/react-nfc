@@ -1,6 +1,6 @@
 {
   "name": "react-nfc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A declarative react api for the web imperative one",
   "author": "fmilani",
   "license": "MIT",
