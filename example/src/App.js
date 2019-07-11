@@ -3,21 +3,20 @@ import React, { useState } from 'react'
 import { useNfcRead } from 'react-nfc'
 
 function Read({ timeout }) {
-  const data = useNfcRead(timeout)
+  const nfc = useNfcRead(timeout)
   return (
     <div>
       <div>
-        Status: {data.status}.
-        {data.status === 'READY' ? <span>Time: {data.time}</span> : null}
-        {data.status === 'UNAVAILABLE' ? (
+        Status: {nfc.status}.
+        {nfc.status === 'READY' ? <span>Time: {nfc.time}</span> : null}
+        {nfc.status === 'UNAVAILABLE' ? (
           <h3>Nfc disabled for this device</h3>
         ) : null}
       </div>
-      <div>Data: {JSON.stringify(data.data)}</div>
+      <div>Data: {JSON.stringify(nfc.data)}</div>
       <button
         onClick={() => {
-          console.log(data.retry)
-          data.retry()
+          nfc.retry()
         }}
       >
         Retry
